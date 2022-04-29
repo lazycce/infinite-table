@@ -1,5 +1,5 @@
-const MyTree = require('./my-tree').default
-const defaultRowRenderer = require('./my-renderer').default
+const InfiniteTable = require('./infinite-table').default
+const defaultRowRenderer = require('./renderer').default
 
 const listData = [
   {id: 1, name: '1'},
@@ -964,12 +964,12 @@ const listData = [
   {id: 160, name: '1'},
 ]
 
-function initTree () {
+function initTable () {
   const tree = document.createElement('div')
   tree.style.height = '100px'
   tree.style.background="green"
 
-  new MyTree(tree, {
+  new InfiniteTable(tree, {
     data: listData,
     rowRender: defaultRowRenderer
   })
@@ -977,4 +977,4 @@ function initTree () {
   window.document.body.appendChild(tree)
 }
 
-initTree()
+initTable()
