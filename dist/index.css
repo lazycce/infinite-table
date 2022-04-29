@@ -1,0 +1,8 @@
+.elem-scroll {
+  height: 100%;
+  overflow: auto;
+}
+
+.elem-item {
+  text-align: center;
+}
