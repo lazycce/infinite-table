@@ -27,13 +27,13 @@ class InfiniteTable {
   constructor(el, options) {
     this.el = el;
 
-    console.log(options)
     this.options = {
       ...this.options,
       ...options
     }
 
     this.create()
+
     this.loadData(this.options.data)
   }
 
@@ -56,7 +56,6 @@ class InfiniteTable {
       // 滚动的监听事件
       this.scrollElement.addEventListener('scroll', () => {
         const clusterIndex = this.getCurrentClusterIndex();
-        console.log('clusterIndex', clusterIndex)
         
         if (this.state.lastClusterIndex !== clusterIndex) {
             this.changeDOM();
@@ -104,7 +103,6 @@ class InfiniteTable {
       rows = (this.rows.length > 0) ? this.rows : this.generateEmptyRow();
     } else {
       const rowsInCluster = this.options.rowsInBlock * this.options.blocksInCluster;
-      console.log('rowsInCluster', rowsInCluster)
       const clusterIndex = this.getCurrentClusterIndex();
       // 渲染的开始索引
       const visibleStart = Math.max((rowsInCluster - this.options.rowsInBlock) * clusterIndex, 0);
